@@ -1,6 +1,6 @@
 loadAPI(1);
 
-host.defineController("Arturia", "Beatstep Pro - Automap", "0.1", "06a582ac-533b-11e5-bc13-206a8ae018ce", "timor@cyhex.com");
+host.defineController("Arturia", "BSP", "0.1", "06a582ac-533b-11e5-bc13-206a8ae018ce");
 host.defineMidiPorts(1, 1);
 host.addDeviceNameBasedDiscoveryPair(["Arturia BeatStep Pro"], ["Arturia BeatStep Pro"]);
 

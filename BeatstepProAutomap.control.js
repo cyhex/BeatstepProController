@@ -44,8 +44,6 @@ function init() {
     inPort = host.getMidiInPort(0);
     inPort.setMidiCallback(onMidi);
     outPort = host.getMidiOutPort(0);
-    // Enable Midi Beat Clock
-    outPort.setShouldSendMidiBeatClock(true);
 
     for (var channel in CHANNELS) {
         createNoteInput(channel, CHANNELS[channel]);

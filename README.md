@@ -2,7 +2,7 @@
 BitWig controller Script for Arturia Beatstep Pro
 
 Features:
-.........
+---------
 
 **Control Mode:**
 
@@ -17,7 +17,7 @@ Features:
   
 
 How to install:
-...............
+---------------
 
 1.  Download this project as a ZIP file (button on the right) and extract it to your Bitwig controller scripts folder:
     *   **Windows:** ~Documents\Bitwig Studio\Controller Scripts
@@ -37,7 +37,7 @@ How to install:
         
 
 Know issues
-...........
+-----------
 
 **Transport sucks**
  
@@ -46,6 +46,6 @@ Know issues
 
 
 Notes & Credits 
-...............
+---------------
 
 Many thanks to https://github.com/justlep for providing Initial code & installation docs

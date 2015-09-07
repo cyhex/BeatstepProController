@@ -13,7 +13,7 @@ Features:
 
 **Global**
 
-* Transport buttons start / stop BitWig 
+* Transport buttons start / stop Bitwig 
 
 
 How to install:
@@ -32,8 +32,7 @@ How to install:
 **Important**
 
 * Make sure you have the latest Firmware (1.1.6) 
-* Make sure you upload Template.beasteppro to your device using Arturias Midi Center (can be sometimes buggy): 
-    ** http://www.arturia.com/support/downloads&manuals
+* Make sure you upload Template.beasteppro to your device using Arturias Midi Center http://www.arturia.com/support/downloads&manuals
     
 
 Know issues
@@ -41,7 +40,7 @@ Know issues
 
 **Transport sucks**
  
-* I count not reliably sync tempo Beatstep Pro with bitwig.
+* I could not reliably sync  Beatstep's tempo with Bitwig.
 * Current workaround is to set sync to INT on Beatstep Pro and set same Tempo as Bitwig.
 
 

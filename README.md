@@ -1,5 +1,5 @@
-# Beatstep Pro Controller Script for BitWig
-BitWig controller Script for Arturia Beatstep Pro
+# Arturia Beatstep Pro Controller Script for Bitwig
+Bitwig controller Script for Arturia Beatstep Pro
 
 Features:
 ---------
@@ -7,7 +7,7 @@ Features:
 **Control Mode:**
 
 * Support for relative control changes 
-* AutoMap of rotaries (1-4, 9-12) to Device Macro 1-8
+* Automaping of rotaries (1-4, 9-12) to Device Macro 1-8
 * Rotaries 5-8, 13-16 are freely assignable.
 * Step button 15 and 16 : Previous / next preset of active device   
 

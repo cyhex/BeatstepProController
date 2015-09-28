@@ -9,7 +9,9 @@ var HIGHEST_CC = 119;
 var CC_CENTER_VAL = 64;
 
 // automap set 1 & set 3
-var AUTO_MAP = [10, 74, 71, 76, 114, 18, 19, 16];
+var AUTO_MACRO = [10, 74, 71, 76, 114, 18, 19, 16];
+var AUTO_PARAMS = [77, 93, 73, 75, 17, 91, 79, 72];
+
 
 var CHANNELS = {
     0: 'ALL',
@@ -18,28 +20,6 @@ var CHANNELS = {
     3: 'USR',
     10: 'DRUM'
 };
-
-
-// 0x00 = Absolute ; 0x01 =Relative 1 ; 0x02 =Relative 2 ; 0x03 =Relative 3
-var KNOB_MODE = {
-    0x20: 0x01, //KB1
-    0x21: 0x01,
-    0x22: 0x01,
-    0x23: 0x01,
-    0x24: 0x01,
-    0x25: 0x01,
-    0x26: 0x01,
-    0x27: 0x01,
-    0x28: 0x01,
-    0x29: 0x01,
-    0x2A: 0x01,
-    0x2B: 0x01,
-    0x2C: 0x01,
-    0x2D: 0x01,
-    0x2E: 0x01,
-    0x2F: 0x01 //KB16
-}
-
 
 DEFINED_CC = {
     // transport
@@ -52,10 +32,12 @@ DEFINED_CC = {
     178: {
         PROG_PRIV: 54,
         PROG_NEXT: 55,
-        TRACK_PRIV: 24,
-        TRACK_NEXT: 25,
-        DEV_PRIV: 26,
-        DEV_NEXT: 27
+        TRACK_PRIV: 20,
+        TRACK_NEXT: 21,
+        DEV_PRIV: 22,
+        DEV_NEXT: 23,
+        PARAM_PAGE_PRIV: 24,
+        PARAM_PAGE_NEXT: 25
     }
 };
 
@@ -77,9 +59,8 @@ function init() {
 
     cursorDevice = host.createCursorDeviceSection(8);
     cursorTrack = host.createCursorTrackSection(3, 0);
-    primaryInstrument = cursorTrack.getPrimaryInstrument();
     for (var i = 0; i < 8; i++) {
-        var p = primaryInstrument.getMacro(i).getAmount();
+        var p = cursorDevice.getMacro(i).getAmount();
         p.setIndication(true);
     }
 
@@ -120,10 +101,16 @@ function onMidi(status, cc, value) {
 
     if (isChannelController(status)) {
 
-        if (AUTO_MAP.indexOf(cc) != -1) {
-            // automapper
-            var index = AUTO_MAP.indexOf(cc);
-            primaryInstrument.getMacro(index).getAmount().inc(value - CC_CENTER_VAL, CC_RESOLUTION);
+        if (AUTO_MACRO.indexOf(cc) != -1) {
+            // automapper - macro
+            var index = AUTO_MACRO.indexOf(cc);
+            cursorDevice.getMacro(index).getAmount().inc(value - CC_CENTER_VAL, CC_RESOLUTION);
+        }
+
+        if (AUTO_PARAMS.indexOf(cc) != -1) {
+            // automapper - params
+            var index = AUTO_PARAMS.indexOf(cc);
+            cursorDevice.getParameter(index).inc(value - CC_CENTER_VAL, CC_RESOLUTION);
         }
 
         if (status in DEFINED_CC) {
@@ -141,10 +128,14 @@ function onMidi(status, cc, value) {
                 cursorTrack.selectNext()
             } else if (DEFINED_CC[status].TRACK_PRIV == cc && value == 127) {
                 cursorTrack.selectPrevious()
-            } else if (DEFINED_CC[status].DEV_PRIV == cc && value == 127) {
-                cursorDevice.selectNext()
             } else if (DEFINED_CC[status].DEV_NEXT == cc && value == 127) {
+                cursorDevice.selectNext()
+            } else if (DEFINED_CC[status].DEV_PRIV == cc && value == 127) {
                 cursorDevice.selectPrevious()
+            } else if (DEFINED_CC[status].PARAM_PAGE_NEXT == cc && value == 127) {
+                cursorDevice.previousParameterPage();
+            } else if (DEFINED_CC[status].PARAM_PAGE_PRIV == cc && value == 127) {
+                cursorDevice.nextParameterPage();
             } else if (cc >= LOWEST_CC && cc <= HIGHEST_CC) {
                 // user CC
                 var ii = cc - LOWEST_CC;
@@ -152,25 +143,4 @@ function onMidi(status, cc, value) {
             }
         }
     }
-}
-
-function setupKnobes() {
-    for (var k in KNOB_MODE) {
-        var sysex = "F0 00 20 6B 7F 42 02 00 06" + k + KNOB_MODE[k] + "F7";
-        outPort.sendSysex(sysex);
-    }
-}
-
-function onSysex(data) {
-    printSysex(data);
-    println(data);
-    switch (data) {
-        case "f07f7f0601f7":
-            transport.stop();
-            break;
-        case "f07f7f0602f7":
-            transport.play();
-            break;
-    }
-
 }

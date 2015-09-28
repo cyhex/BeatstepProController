@@ -69,14 +69,14 @@ function init() {
         userControls.getControl(i - LOWEST_CC).setLabel("CC" + i);
     }
 
-    host.getNotificationSettings().setShouldShowSelectionNotifications (true);
-    host.getNotificationSettings().setShouldShowChannelSelectionNotifications (true);
-    host.getNotificationSettings().setShouldShowTrackSelectionNotifications (true);
-    host.getNotificationSettings().setShouldShowDeviceSelectionNotifications (true);
-    host.getNotificationSettings().setShouldShowDeviceLayerSelectionNotifications (true);
-    host.getNotificationSettings().setShouldShowPresetNotifications (true);
-    host.getNotificationSettings().setShouldShowMappingNotifications (true);
-    host.getNotificationSettings().setShouldShowValueNotifications (true);
+    host.getNotificationSettings().setShouldShowSelectionNotifications(true);
+    host.getNotificationSettings().setShouldShowChannelSelectionNotifications(true);
+    host.getNotificationSettings().setShouldShowTrackSelectionNotifications(true);
+    host.getNotificationSettings().setShouldShowDeviceSelectionNotifications(true);
+    host.getNotificationSettings().setShouldShowDeviceLayerSelectionNotifications(true);
+    host.getNotificationSettings().setShouldShowPresetNotifications(true);
+    host.getNotificationSettings().setShouldShowMappingNotifications(true);
+    host.getNotificationSettings().setShouldShowValueNotifications(true);
 
 }
 

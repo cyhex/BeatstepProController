@@ -10,6 +10,8 @@ Features:
 * Automaping of rotaries (1-4, 9-12) to Device Macro 1-8
 * Rotaries 5-8, 13-16 are freely assignable.
 * Step button 15 and 16 : Previous / next preset of active device   
+* Step button 1 and 2: Previous / next Track
+* Step button 3 and 4: Previous / next Device
 
 **Global**
 
@@ -59,14 +61,14 @@ Notes & Credits
 Many thanks to https://github.com/justlep for providing Initial code & installation docs
 
 Api Stubs
-.........
+---------
 
   https://github.com/trappar/bitwig-api-stubs
 
 
 
 Sysex codes
-...........
+-----------
 
 Here are the values you are looking for:
 
@@ -80,9 +82,6 @@ mode value 0x00 = Absolute ;
 0x01 =Relative 1 ;
 0x02 =Relative 2 ; 
 0x03 =Relative 3 ;
-
-
-
 For exemple, to set Knob 6 to Relative 2: F0  00  20  6B  7F  42  02  00  06  25  02  F7
 
 

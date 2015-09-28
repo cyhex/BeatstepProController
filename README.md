@@ -29,7 +29,7 @@ Whats new:
 How to install:
 ---------------
 
-1.  Download this project as a ZIP file (button on the right) and extract it to your Bitwig controller scripts folder:
+1.  Download this project https://github.com/cyhex/BeatstepProController/releases/latest and extract it to your Bitwig controller scripts folder:
     *   **Windows:** ~Documents\Bitwig Studio\Controller Scripts
     *   **Linux/Mac:** ~Documents/Bitwig Studio/Controller Scripts
 2.  Open the preferences dialog in Bitwig and go to Controllers

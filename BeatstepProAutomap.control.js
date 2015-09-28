@@ -45,7 +45,6 @@ var CC_RESOLUTION = 128;
 var inPort;
 var outPort;
 var transport;
-var primaryInstrument;
 
 function init() {
     transport = host.createTransport();
@@ -97,7 +96,7 @@ function createNoteInput(channel, inputName) {
 
 function onMidi(status, cc, value) {
 
-    println(status + " : " + cc + " : " + value);
+    //println(status + " : " + cc + " : " + value);
 
     if (isChannelController(status)) {
 

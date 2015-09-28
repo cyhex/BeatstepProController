@@ -1,0 +1,3 @@
+[submodule "modules/bitwig-api-stubs"]
+	path = modules/bitwig-api-stubs
+	url = https://github.com/trappar/bitwig-api-stubs.git

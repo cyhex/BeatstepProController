@@ -16,6 +16,15 @@ Features:
 * Transport buttons start / stop Bitwig 
 
 
+Whats new:
+----------
+
+* Auto relative mode
+* Track selection
+* Device selection
+
+
+
 How to install:
 ---------------
 
@@ -49,16 +58,24 @@ Notes & Credits
 
 Many thanks to https://github.com/justlep for providing Initial code & installation docs
 
+Api Stubs
+.........
+
+  https://github.com/trappar/bitwig-api-stubs
+
+
 
 Sysex codes
+...........
 
 Here are the values you are looking for:
- F0  00  20  6B  7F  42  02  00  06  <kb>  <val>  F7
 
-<kb> : 
+ F0  00  20  6B  7F  42  02  00  06  [kb]  [val]  F7
+
+[kb] : 
 knob number from 0x20 (knob1) to 0x2F (knob16)
 
-<val> : 
+[val] : 
 mode value 0x00 = Absolute ; 
 0x01 =Relative 1 ;
 0x02 =Relative 2 ; 

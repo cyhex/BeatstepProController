@@ -48,3 +48,24 @@ Notes & Credits
 ---------------
 
 Many thanks to https://github.com/justlep for providing Initial code & installation docs
+
+
+Sysex codes
+
+Here are the values you are looking for:
+ F0  00  20  6B  7F  42  02  00  06  <kb>  <val>  F7
+
+<kb> : 
+knob number from 0x20 (knob1) to 0x2F (knob16)
+
+<val> : 
+mode value 0x00 = Absolute ; 
+0x01 =Relative 1 ;
+0x02 =Relative 2 ; 
+0x03 =Relative 3 ;
+
+
+
+For exemple, to set Knob 6 to Relative 2: F0  00  20  6B  7F  42  02  00  06  25  02  F7
+
+

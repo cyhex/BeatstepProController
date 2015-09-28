@@ -23,6 +23,7 @@ Whats new:
 ----------
 * Track selection
 * Device selection
+* Device param page selection
 
 
 How to install:
